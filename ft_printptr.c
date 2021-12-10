@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printptr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsiguenz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/09 22:26:39 by tsiguenz          #+#    #+#             */
-/*   Updated: 2021/12/10 18:16:32 by tsiguenz         ###   ########.fr       */
+/*   Created: 2021/12/10 16:50:43 by tsiguenz          #+#    #+#             */
+/*   Updated: 2021/12/10 18:23:10 by tsiguenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
+#include "ft_printf.h"
 
-int	ft_strlen(char *str);
-int	ft_printchar(char c);
-int	ft_printstr(char *str);
-int	ft_printpercent(char c);
-int	ft_printnbr(int nb);
-int	ft_printunsigned(unsigned int nb);
-int	ft_printnbr_base(int nb, char *base);
-int	ft_printptr(unsigned long nb, char *base);
+int	ft_printptr(unsigned long nb, char* base)
+{
+	int					ret_val;
 
-#endif
+	ret_val = 0;
+	if (nb >= 16)
+		ret_val += ft_printptr(nb / 16, base);
+	ret_val += ft_printchar(base[nb % 16]);
+	return (ret_val);
+}
