@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsiguenz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tsiguenz <tsiguenz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/10 16:50:43 by tsiguenz          #+#    #+#             */
-/*   Updated: 2021/12/10 18:23:10 by tsiguenz         ###   ########.fr       */
+/*   Created: 2021/12/12 22:15:53 by tsiguenz          #+#    #+#             */
+/*   Updated: 2021/12/12 22:39:25 by tsiguenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printptr(unsigned long nb, char* base)
+int	main(void)
 {
-	int					ret_val;
-
-	ret_val = 0;
-	if (nb >= 16)
-		ret_val += ft_printptr(nb / 16, base);
-	ret_val += ft_printchar(base[nb % 16]);
-	return (ret_val);
+	printf("%d real\n", printf(" %c %c %i ", '0', 0, 1));
+	printf("%d my\n", ft_printf(" %c %c %i ", '0', 0, 1));
+	return 0;
 }
