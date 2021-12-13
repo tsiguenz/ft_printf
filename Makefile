@@ -6,7 +6,7 @@
 #    By: tsiguenz <tsiguenz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/12 20:22:47 by tsiguenz          #+#    #+#              #
-#    Updated: 2021/12/12 22:20:39 by tsiguenz         ###   ########.fr        #
+#    Updated: 2021/12/13 19:04:11 by tsiguenz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ ${NAME}:	${OBJS}
 all:		${NAME}
 
 test:
-	@${CC} ${SRC} test.c && ./a.out
+	@${CC} -g3 ${SRC} test.c && ./a.out
 
 clean:
 	rm -f ${OBJS}

@@ -6,7 +6,7 @@
 /*   By: tsiguenz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 13:04:27 by tsiguenz          #+#    #+#             */
-/*   Updated: 2021/12/12 22:42:47 by tsiguenz         ###   ########.fr       */
+/*   Updated: 2021/12/13 20:20:22 by tsiguenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ int	ft_strlen(char *str)
 
 int	ft_printchar(char c)
 {
-	if (!c)
-		return (0);
-	write(1, &c, 1);
-	return (1);
+	int	ret_val;
+
+	ret_val = 0;
+	ret_val += write(1, &c, 1);
+	return (ret_val);
 }
 
 int	ft_printstr(char *str)
@@ -39,15 +40,14 @@ int	ft_printstr(char *str)
 
 	ret_val = 0;
 	if (!str)
-		return (0);
+		return (write(1, "(null)", 6));
 	len = ft_strlen(str);
-	ret_val = (int)write(1, str, len);
+	ret_val += (int)write(1, str, len);
 	return (ret_val);
 }
 
-int	ft_printpercent(char c)
+int	ft_printpercent(void)
 {
-	(void) c;
 	ft_printchar('%');
 	return (1);
 }
