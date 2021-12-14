@@ -6,7 +6,7 @@
 #    By: tsiguenz <tsiguenz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/12 20:22:47 by tsiguenz          #+#    #+#              #
-#    Updated: 2021/12/13 19:04:11 by tsiguenz         ###   ########.fr        #
+#    Updated: 2021/12/14 16:15:32 by tsiguenz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,6 @@ ${NAME}:	${OBJS}
 	ar -rcs $@ $^
 
 all:		${NAME}
-
-test:
-	@${CC} -g3 ${SRC} test.c && ./a.out
 
 clean:
 	rm -f ${OBJS}

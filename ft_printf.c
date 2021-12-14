@@ -6,7 +6,7 @@
 /*   By: tsiguenz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 22:22:49 by tsiguenz          #+#    #+#             */
-/*   Updated: 2021/12/13 20:20:09 by tsiguenz         ###   ########.fr       */
+/*   Updated: 2021/12/14 16:08:30 by tsiguenz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,15 @@ int	ft_parser(char *format, va_list *arg)
 	else if (*format == 'u')
 		count_print += (unsigned int) ft_printunsigned(va_arg(*arg, int));
 	else if (*format == 'x')
-		count_print += ft_printnbr_base(va_arg(*arg, unsigned int), "0123456789abcdef");
+		count_print += ft_printnbr_base(va_arg(*arg, unsigned int), 0);
 	else if (*format == 'X')
-		count_print += ft_printnbr_base(va_arg(*arg, unsigned int), "0123456789ABCDEF");
+		count_print += ft_printnbr_base(va_arg(*arg, unsigned int), 1);
 	else if (*format == '%')
 		count_print += ft_printpercent();
-//		count_print += ft_printpercent(va_arg(*arg, int));
 	else if (*format == 'p')
-	{
-		count_print += ft_printstr("0x");
-		count_print += ft_printptr(va_arg(*arg, unsigned long int),
-				"0123456789abcdef");
-	}
+		count_print += ft_printptr(va_arg(*arg, unsigned long int));
+	else
+		count_print += ft_printchar(*format);
 	return (count_print);
 }
 
