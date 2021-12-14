@@ -6,7 +6,7 @@
 #    By: tsiguenz <tsiguenz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/12 20:22:47 by tsiguenz          #+#    #+#              #
-#    Updated: 2021/12/14 16:15:32 by tsiguenz         ###   ########.fr        #
+#    Updated: 2021/12/14 16:24:36 by tsiguenz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,4 +30,5 @@ fclean:	clean
 	rm -f ${NAME}
 
 re:	fclean all
+
 .PHONY:	all clean fclean re
